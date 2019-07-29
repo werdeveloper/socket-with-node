@@ -11,13 +11,13 @@ class POC {
 
         this._setMiddleware();
         this.socket = null;
-        let io = sio(this.app.listen(5000));
+        let io = sio(this.app.listen(3001));
 
         io.on('connection', (socket) => {
             this.socket = socket;
         });
 
-        console.log('Server is listening on http://localhost:5000');
+        console.log('Server is listening on http://localhost:3001');
     }
 
     _setMiddleware() {
@@ -32,7 +32,7 @@ class POC {
         this.app.get('/', (req, res, next) => {
             console.log('* route');
             this.socket.emit('default', {message: `Hello ${Date.now()}`});
-            res.end();
+            res.end("Request Hit");
         });
         
         // this.app.get('/index', (req, res, next) => {
