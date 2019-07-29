@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    Please access 'http://localhost:3001/' URL to activate socket connection.
+    <script src="socket.io.js"></script>
+    <script>
+        var socket = io('http://localhost:3001');
+        socket.on('default', function(data) {
+            document.clear();
+            document.write(data.message + '</br>');
+        });
+    </script>
+</body>
+
+</html>
